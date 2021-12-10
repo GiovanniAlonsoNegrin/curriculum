@@ -1,0 +1,35 @@
+{
+  "language": {
+    "spanish": "Español",
+    "english": "Inglés"
+  },
+  "left": {
+    "jobDescription": "Programador web junior",
+    "contact": "Contacto",
+    "education": "Estudios",
+    "firstEducationDate": "2021 - Actualmente",
+    "firstEducation": "Técnico Superior en Desarrollo de Aplicaciones Web",
+    "secondEducation": "Técnico Superior en Administración de Sistemas Informaticos de Red",
+    "thirdEducation": "Certificado de profesionalidad en Sistemas Microinformáticos",
+    "languages": "Idiomas",
+    "firstLanguage": "Español",
+    "secondLanguage": "Inglés"
+  },
+  "right": {
+    "profile": "Perfil",
+    "profileDescription": "Soy una persona muy trabajadora, puntual, sociable y me gusta trabajar en equipo, mi objetivo es mejorar día a día mis habilidades con mucho esfuerzo y dedicación.",
+    "experience": "Experiencia laboral",
+    "dimensionDate": "Oct - Nov 2021",
+    "dimensionJob": "Desarrollador Web Junior",
+    "dimensionDescription": "FCT, realización de páginas web (frontend y backend)",
+    "cagDate": "Junio 2019",
+    "cagJob": "Técnico Informático",
+    "cagDescription": "FCT, reparación y mantenimiento de equipos informáticos",
+    "professionalSkills": "Habilidades profesionales",
+    "interest": "Intereses",
+    "gaming": "<i class='fas fa-gamepad'></i> Juegos",
+    "swiming": "<i class='fas fa-swimmer'></i> Natación",
+    "cooking": "<i class='fas fa-utensils'></i> Cocina",
+    "walking": "<i class='fas fa-walking'></i> Pasear"
+  }
+}
