@@ -203,6 +203,7 @@ body{
 p{
     color: #333;
     cursor: default;
+    text-align: justify;
 }
 
 .about .box{
