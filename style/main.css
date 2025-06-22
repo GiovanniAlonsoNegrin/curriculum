@@ -354,3 +354,43 @@ p{
         padding: 25px 10px 25px 10px;
     }
 }
+
+.overlay {
+    align-items: center;
+    background: white;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: transparent;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.without-scroll {
+    overflow: hidden;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

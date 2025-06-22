@@ -1,34 +1,51 @@
-$( document ).ready(function (){
-    let userLang = navigator.language;
-    let mySelect = $('#select').val();
-    if (userLang == 'es-ES'){
-        mySelect = 'Spanish';
-    }
-    if  (userLang == 'en-EN'){
-        mySelect = 'English';
-    }
+$(document).ready(function () {
+    const $body = $('body');
+    const $select = $('#select');
+    const $overlay = $('.overlay');
+    const textsToChange = $('[data-section]');
+    const supportedLangs = ['es', 'en'];
 
-    //Languages
-    let textsToChange = $('[data-section]');
+    const toggleScroll = (enable) => {
+        $body.toggleClass('without-scroll', !enable);
+    };
+
+    const getUserLang = () => navigator.language.slice(0, 2);
+
+    const setSelectLang = (lang) => {
+        $select.find('option').prop('selected', false);
+        $select.find(`option[data-lang="${lang}"]`).prop('selected', true);
+    };
 
     const changeLanguage = async (lang) => {
-        const requestJson = await fetch(`./languages/${lang}.json`);
-        const texts = await requestJson.json();
+        try {
+            const res = await fetch(`./languages/${lang}.json`);
+            const texts = await res.json();
 
-        for (let textToChange of textsToChange){
-            const section = textToChange.dataset.section;
-            const value = textToChange.dataset.value;
-
-            textToChange.innerHTML = texts[section][value];
+            textsToChange.each(function () {
+                const section = $(this).data('section');
+                const value = $(this).data('value');
+                $(this).html(texts[section][value] || '');
+            });
+        } catch (e) {
+            console.error(`No se pudo cargar el idioma "${lang}"`, e);
         }
     };
 
-    $('#select').change(function () {
-        mySelect = $(this).find(':selected').data('lang');
-        if (mySelect == 'es'){
-            changeLanguage('es');
-        } else {
-            changeLanguage('en');
-        }
+    toggleScroll(false);
+
+    const userLang = getUserLang();
+    const currentLang = $select.find('option:selected').data('lang');
+
+    if (supportedLangs.includes(userLang) && currentLang !== userLang) {
+        setSelectLang(userLang);
+    }
+
+    changeLanguage(userLang);
+    toggleScroll(true);
+    $overlay.remove();
+
+    $select.on('change', function () {
+        const selectedLang = $(this).find(':selected').data('lang');
+        changeLanguage(selectedLang);
     });
 });
