@@ -48,4 +48,8 @@ $(document).ready(function () {
         const selectedLang = $(this).find(':selected').data('lang');
         changeLanguage(selectedLang);
     });
+
+    $("#checkbox").on("change", function() {
+        $("body").toggleClass("dark");
+    });
 });
